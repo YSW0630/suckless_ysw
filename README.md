@@ -1,0 +1,2 @@
+# suckless_backup
+這是我在從安裝完ArchLinux後第一個選擇的WM (window manager)，而非選擇DE (desktop enviroment)的suckless backup，會選擇suckless program的原因主要是其精簡主義（code不超過2000行在不裝補丁下），第二是裝archlinux時就是希望不要佔用電腦太多空間而dwm也符合我的這樣需求。
