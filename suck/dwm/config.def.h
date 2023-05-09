@@ -71,7 +71,6 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
-// static const char *dmenucmd[] = { "dmenu_run", "-bw", "3", "-m", dmenumon, NULL };
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *volup[] = { "amixer", "-qM", "set", "Master", "2%+", "umute", NULL };
@@ -81,6 +80,7 @@ static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };
 static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };
 static const char *lockcmd[] = { "slock", NULL};
 static const char *PrtSc[] = { "flameshot", "gui", NULL};
+static const char *browser[] = {"google-chrome-stable", NULL};
 
 #include "shiftview.c"
 static const Key keys[] = {
@@ -92,6 +92,7 @@ static const Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
   { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd} },
   { MODKEY,                       XK_Print,  spawn,          {.v = PrtSc} },
+  { MODKEY,                       XK_w,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                	    	XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
