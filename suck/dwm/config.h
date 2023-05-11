@@ -83,8 +83,15 @@ static const char *PrtSc[] = { "flameshot", "gui", NULL};
 static const char *browser[] = {"google-chrome-stable", NULL};
 
 #include "shiftview.c"
+#include <X11/XF86keysym.h>
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = lightup} },
+	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = lightdown} },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volup} },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mute} },
+  { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
  	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },
  	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
@@ -92,7 +99,6 @@ static const Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
   { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd} },
-  { MODKEY,                       XK_Print,  spawn,          {.v = PrtSc} },
   { MODKEY,                       XK_w,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                	    	XK_Return, spawn,          {.v = termcmd } },
