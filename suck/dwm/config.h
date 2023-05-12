@@ -29,19 +29,20 @@ static const char *colors[][3]      = {
 	// [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 /* tagging */
-static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
+// static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
+static const char *tags[] = { "1", "2", "3", "4", "5"};
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st-256color",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "Alacritty",NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class          instance       title     tags mask  isfloating  isterminal  noswallow  monitor */
+	// { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	// { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "st-256color",   NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "Alacritty",     NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,            NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -92,11 +93,11 @@ static const Key keys[] = {
 	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
 	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mute} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
-	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
- 	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },
- 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
- 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },
- 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
+	// { MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
+ 	// { MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },
+ 	// { MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
+ 	// { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },
+ 	// { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
   { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd} },
   { MODKEY,                       XK_w,      spawn,          {.v = browser} },
@@ -119,6 +120,22 @@ static const Key keys[] = {
 	{ MODKEY,                 			XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,          			   			XK_y,	     setlayout,      {0} },
 	{ MODKEY, 			              	XK_g, 	   togglefloating, {0} },
+	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
+	{ MODKEY,                       XK_Up,     moveresize,     {.v = "0x -25y 0w 0h" } },
+	{ MODKEY,                       XK_Right,  moveresize,     {.v = "25x 0y 0w 0h" } },
+	{ MODKEY,                       XK_Left,   moveresize,     {.v = "-25x 0y 0w 0h" } },
+	{ MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = "0x 0y 0w 25h" } },
+	{ MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = "0x 0y 0w -25h" } },
+	{ MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = "0x 0y 25w 0h" } },
+	{ MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ControlMask,           XK_Up,     moveresizeedge, {.v = "t"} },
+	{ MODKEY|ControlMask,           XK_Down,   moveresizeedge, {.v = "b"} },
+	{ MODKEY|ControlMask,           XK_Left,   moveresizeedge, {.v = "l"} },
+	{ MODKEY|ControlMask,           XK_Right,  moveresizeedge, {.v = "r"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_Up,     moveresizeedge, {.v = "T"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_Down,   moveresizeedge, {.v = "B"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_Left,   moveresizeedge, {.v = "L"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_Right,  moveresizeedge, {.v = "R"} },
   { MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
   { MODKEY,                       XK_p,      shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
