@@ -74,14 +74,17 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *volup[] = { "amixer", "-qM", "set", "Master", "2%+", "umute", NULL };
-static const char *voldown[] = { "amixer", "-qM", "set", "Master", "2%-", "umute", NULL };
-static const char *mute[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };
+static const char *volup[] = { "amixer", "set", "Master", "2%+", NULL };
+static const char *voldown[] = { "amixer", "set", "Master", "2%-", NULL };
+static const char *mute_vol[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *mute_mic[] = { "amixer", "set", "Capture", "toggle", NULL };
 static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };
 static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };
 static const char *lockcmd[] = { "slock", NULL};
 static const char *PrtSc[] = { "flameshot", "gui", NULL};
 static const char *browser[] = {"google-chrome-stable", NULL};
+static const char *emoji[] = {"bemoji", "-t", NULL};
+static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};
 
 #include "shiftview.c"
 #include <X11/XF86keysym.h>
@@ -89,15 +92,21 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = lightup} },
 	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = lightdown} },
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volup} },
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mute} },
+  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volup} },
+  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
+  { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = Kill} },
+	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill} },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill} },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill} },
+  { 0,              XF86XK_AudioMicMute,     spawn,          {.v = mute_mic} },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mute_vol} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	// { MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
  	// { MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },
  	// { MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
  	// { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },
  	// { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
+	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
   { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd} },
   { MODKEY,                       XK_w,      spawn,          {.v = browser} },
