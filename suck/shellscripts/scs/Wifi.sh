@@ -1,7 +1,13 @@
 #!/bin/bash
+if grep -q '^\s*w' /proc/net/wireless; then
+    Wifi=$(awk '/^\s*w/ { print int($3 * 100 / 70) "%" }' /proc/net/wireless)
+else
+    Wifi="down"
+fi
 
-Wifi=$(awk '/^\s*w/ { print int($3 * 100 / 70) "%" }' /proc/net/wireless)
 echo -e "$Wifi"
+# Wifi=$(awk '/^\s*w/ { print int($3 * 100 / 70) "%" }' /proc/net/wireless)
+# echo -e "$Wifi"
 
 # Show wifi 📶 and percent strength or 📡 if none.
 # Show 🌐 if connected to ethernet or ❎ if none.
