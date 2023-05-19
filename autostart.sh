@@ -6,15 +6,6 @@
 xrandr --auto
 # xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off
 
-# set cursor size
-# xsetroot -xcf /usr/share/icons/Adwaita/cursors/left_ptr 1
-
-# confirm dbus enable
-eval "$(dbus-launch --sh-syntax --exit-with-session)" &
-
-# mpd start
-mpd ~/.config/mpd/mpd.conf
-
 # Start fcitx5
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -22,11 +13,11 @@ export XMODIFIERS=@im=fcitx
 killall fcitx5
 fcitx5 &
 
-#start dwmblocks
+# start dwmblocks
 dwmblocks &
 
 # wallpaper
-feh --bg-scale ~/Pictures/astronaut.jpg
+feh --no-fehbg --bg-scale ~/Pictures/switch-3840-2160--9e2aa87889b3fdb4d03d2b37c7335e82.jpg
 
 # start picom
 picom --experimental-backends &
