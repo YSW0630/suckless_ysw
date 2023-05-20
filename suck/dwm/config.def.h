@@ -85,6 +85,7 @@ static const char *PrtSc[] = { "flameshot", "gui", NULL};
 static const char *browser[] = {"google-chrome-stable", NULL};
 static const char *emoji[] = {"bemoji", "-t", NULL};
 static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};
+static const char *change_bg[] = {"/home/justin/scs/change_bg.sh", NULL};
 
 #include "shiftview.c"
 #include <X11/XF86keysym.h>
@@ -107,14 +108,15 @@ static const Key keys[] = {
  	// { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },
  	// { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },
 	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
+  { MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
+  { MODKEY|ShiftMask,             XK_o,      rotatestack,    {.i = -1 } },
+  { MODKEY,                       XK_o,      rotatestack,    {.i = +1 } },
+  { MODKEY,               	    	XK_w,      spawn,          {.v = change_bg } },
   { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd} },
-  { MODKEY,                       XK_w,      spawn,          {.v = browser} },
+  { MODKEY,                       XK_b,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                	    	XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_o,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_o,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },

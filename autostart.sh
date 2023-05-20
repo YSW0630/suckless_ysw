@@ -17,7 +17,8 @@ fcitx5 &
 dwmblocks &
 
 # wallpaper
-feh --no-fehbg --bg-scale ~/Pictures/switch-3840-2160--9e2aa87889b3fdb4d03d2b37c7335e82.jpg
+# feh --no-fehbg --bg-scale ~/Pictures/wallpapers/0042.jpg
+$HOME/scs/random_wallpaper.sh &
 
 # start picom
 picom --experimental-backends &
