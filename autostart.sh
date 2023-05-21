@@ -13,12 +13,22 @@ export XMODIFIERS=@im=fcitx
 killall fcitx5
 fcitx5 &
 
+# start dunst 
+# dunst &
+
+# start some tray
+# nm-applet &
+# blueman-applet &
+# cbatticon &
+# volumeicon &
+# my-weather-indicator &
+
 # start dwmblocks
 dwmblocks &
 
 # wallpaper
-# feh --no-fehbg --bg-scale ~/Pictures/wallpapers/0042.jpg
-$HOME/scs/random_wallpaper.sh &
+feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
+# $HOME/scs/random_wallpaper.sh &
 
 # start picom
 picom --experimental-backends &
