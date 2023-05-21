@@ -42,6 +42,8 @@ static const Rule rules[] = {
 	{ "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },
   { "Pcmanfm",             NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },
+  { "discord",             NULL,     NULL,           1 << 3,    0,          0,           1,        -1 },           
+  { "obs",                 NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
 	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -74,12 +76,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *volup[] = { "amixer", "set", "Master", "2%+", NULL };
-static const char *voldown[] = { "amixer", "set", "Master", "2%-", NULL };
-static const char *mute_vol[] = { "amixer", "set", "Master", "toggle", NULL };
-static const char *mute_mic[] = { "amixer", "set", "Capture", "toggle", NULL };
-static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };
-static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };
+static const char *volup[] = { "pamixer", "-ui", "2", "--allow-boost", NULL };                                                                                                
+static const char *voldown[] = { "pamixer", "-ud", "2", "--allow-boost", NULL };                                                                                              
+static const char *mute_vol[] = { "pamixer", "-t", NULL };                                                                                          
+static const char *mute_mic[] = { "amixer", "set", "Capture", "toggle", NULL };                                                                                         
+static const char *lightup[] = { "light", "-A", "2", NULL };                                                                                                     
+static const char *lightdown[] = { "light", "-U", "2", NULL };                                                                                                   
 static const char *lockcmd[] = { "slock", NULL};
 static const char *PrtSc[] = { "flameshot", "gui", NULL};
 static const char *browser[] = {"google-chrome-stable", NULL};
