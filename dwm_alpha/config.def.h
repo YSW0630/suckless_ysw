@@ -5,34 +5,29 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FantasqueSansMono Nerd Font:size=12" };
 static const char dmenufont[]       = "FantasqueSansMono Nerd Font:size=12";
+static unsigned int baralpha        = 0x90;
+static unsigned int borderalpha     = OPAQUE;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-
-/* My Color Scheme */                           
+/* My Color Scheme */
 static const char col_dark_purple[]	= "#282a36";
 static const char col_light_purple[]= "#7E00D5";
 static const char col_dracula[]     = "#6272a4";
-static const char col_light_blue[]= "#5A6EFF";  
-
+static const char col_light_blue[]= "#5A6EFF";
+ 
 static const char *colors[][3]      = {
-  /*            	 fg(font)  bg(behind test)  border   */    
-  [SchemeNorm] = { col_gray3, col_dark_purple, col_gray2 },  
-  [SchemeSel]  = { col_gray4, col_dracula, col_light_blue  },
-  // [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },     
+	/*            	 fg(font)  bg(behind test)  border   */
+	[SchemeNorm] = { col_gray3, col_dark_purple, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_dracula, col_light_blue  },
+	// [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
-
 /* tagging */
 // static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
 static const char *tags[] = { "1", "2", "3", "4", "5"};
@@ -42,12 +37,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-  /* class                instance   title        tags mask  isfloating  isterminal  noswallow  monitor */         
-  { "st-256color",         NULL,     NULL,           0,         0,          1,           0,        -1 },           
-  { "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },           
-  { "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },           
-  { "Pcmanfm",             NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
-  { NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */ 
+	/* class                instance   title        tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "st-256color",         NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },
+  { "Pcmanfm",             NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },
+	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -76,23 +71,23 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };                                                                                                  
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL }; 
-static const char *termcmd[]  = { "alacritty", NULL };                                                                                                                  
-static const char *volup[] = { "amixer", "set", "Master", "2%+", NULL };                                                                                                
-static const char *voldown[] = { "amixer", "set", "Master", "2%-", NULL };                                                                                              
-static const char *mute_vol[] = { "amixer", "set", "Master", "toggle", NULL };                                                                                          
-static const char *mute_mic[] = { "amixer", "set", "Capture", "toggle", NULL };                                                                                         
-static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };                                                                                                     
-static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };                                                                                                   
-static const char *lockcmd[] = { "slock", NULL};                                                                                                                        
-static const char *PrtSc[] = { "flameshot", "gui", NULL};                                                                                                               
-static const char *browser[] = {"google-chrome-stable", NULL};                                                                                                          
-static const char *emoji[] = {"bemoji", "-t", NULL};                                                                                                                    
-static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};                                                                                                  
-static const char *change_bg[] = {"/home/justin/scs/change_bg.sh", NULL};                                                                                               
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *volup[] = { "amixer", "set", "Master", "2%+", NULL };
+static const char *voldown[] = { "amixer", "set", "Master", "2%-", NULL };
+static const char *mute_vol[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *mute_mic[] = { "amixer", "set", "Capture", "toggle", NULL };
+static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };
+static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };
+static const char *lockcmd[] = { "slock", NULL};
+static const char *PrtSc[] = { "flameshot", "gui", NULL};
+static const char *browser[] = {"google-chrome-stable", NULL};
+static const char *emoji[] = {"bemoji", "-t", NULL};
+static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};
+static const char *change_bg[] = {"/home/justin/scs/change_bg.sh", NULL};
 
-#include "shiftview.c"     
+#include "shiftview.c"
 #include <X11/XF86keysym.h>
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,8 +99,9 @@ static const Key keys[] = {
 	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill} },
 	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill} },
 	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill} },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = Kill} },
+  { 0,              XF86XK_AudioMute,        spawn,          {.v = mute_vol} },
   { 0,              XF86XK_AudioMicMute,     spawn,          {.v = mute_mic} },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mute_vol} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	// { MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
  	// { MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },
