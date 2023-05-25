@@ -13,15 +13,18 @@ export XMODIFIERS=@im=fcitx
 killall fcitx5
 fcitx5 &
 
+# start unclutter
+unclutter &
+
 # start dunst 
-# dunst &
+dunst &
 
 # start some tray
 # nm-applet &
 # blueman-applet &
 # cbatticon &
 # volumeicon &
-# my-weather-indicator &
+my-weather-indicator &
 
 # start dwmblocks
 dwmblocks &
