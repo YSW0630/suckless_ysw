@@ -11,6 +11,7 @@ static const Block blocks[] = {
 	{"󰍛  ", "$HOME/scs/Memory.sh",     5,   	1},
 	{"󰋊  ", "$HOME/scs/Disk.sh",       0,   	9},
 	{"  ", "$HOME/scs/Clock.sh",      1,   	2},
+  // {"", "$HOME/scs/Weather.sh",       3600,  3},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

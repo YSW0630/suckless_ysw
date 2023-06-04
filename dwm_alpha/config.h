@@ -88,7 +88,7 @@ static const char *PrtSc[] = { "flameshot", "gui", NULL};
 static const char *browser[] = {"google-chrome-stable", NULL};
 static const char *emoji[] = {"bemoji", "-t", NULL};
 static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};
-static const char *change_bg[] = {"/home/justin/scs/change_bg.sh", NULL};
+static const char *change_bg[] = {"/home/justin/scs/Change_bg.sh", NULL};
 
 #include "shiftview.c"
 #include <X11/XF86keysym.h>
