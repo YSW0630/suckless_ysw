@@ -92,7 +92,8 @@ static const char *lockcmd[] = { "slock", NULL};
 static const char *PrtSc[] = { "flameshot", "gui", NULL};                                                                                                               
 static const char *browser[] = {"google-chrome-stable", NULL};                                                                                                          
 static const char *emoji[] = {"bemoji", "-t", NULL};                                                                                                                    
-static const char *Kill[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};                                                                                                  
+static const char *Kill9[] = {"pkill", "-RTMIN+9", "dwmblocks", NULL};                                                                                                  
+static const char *Kill10[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = {"/home/justin/scs/Change_bg.sh", NULL};                                                                                               
 
 #include "shiftview.c"     
@@ -103,11 +104,11 @@ static const Key keys[] = {
 	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = lightdown} },
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volup} },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
-  { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = Kill} },
-	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill} },
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill} },
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill} },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = Kill} },
+  { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = Kill10} },
+	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill10} },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill10} },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill10} },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = Kill10} },
   { 0,              XF86XK_AudioMute,        spawn,          {.v = mute_vol} },
   { 0,              XF86XK_AudioMicMute,     spawn,          {.v = mute_mic} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
@@ -186,7 +187,7 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = Kill9 } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
