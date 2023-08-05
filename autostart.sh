@@ -14,19 +14,19 @@ export XMODIFIERS=@im=fcitx
 killall fcitx5
 fcitx5 &
 
+# start some tray
+nm-applet &
+cbatticon -n &
+# volumeicon &
+# my-weather-indicator &
+# flameshot &
+# blueman-applet &
+
 # start unclutter
 unclutter &
 
 # start dunst 
 dunst &
-
-# start some tray
-# nm-applet &
-# blueman-applet &
-# cbatticon &
-# volumeicon &
-# flameshot &
-my-weather-indicator &
 
 # start dwmblocks
 dwmblocks &
@@ -37,7 +37,7 @@ feh --no-fehbg --bg-fill Pictures/dcpaper/wallhaven-ym7237_1920x1080.png
 # $HOME/scs/Random_wallpaper.sh &
 
 # start picom
-picom --experimental-backends &
+picom -b &
 
 # auto lock screen
 xautolock -time 10 -locker slock &
