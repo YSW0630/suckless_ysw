@@ -26,9 +26,8 @@ some cute programs 👇
 ``` bash
 # command:
 git clone https://github.com/YSW0630/suckless_backup
-cd suckless_backup
 # for dwm
-cd dwm_systray
+cd suckless_backup/dwm/dwm_alpha
 make && sudo make clean install
 # the rest of suckless programs also use the command make install
 ```
