@@ -34,9 +34,10 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-// static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
 // static const char *tags[] = { "1", "2", "3", "4", "5"};
-static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱"};
+// static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
+// static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱"};
+static const char *tags[] = { "Home", "Web", "Code", "Pcman", "Misc"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,8 +48,9 @@ static const Rule rules[] = {
   { "st-256color",         NULL,     NULL,           0,         0,          1,           0,        -1 },           
   { "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },           
   { "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },           
-  { "Pcmanfm",             NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
-  { "discord",             NULL,     NULL,           1 << 3,    0,          0,           1,        -1 },           
+  { "code-oss",            NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
+  { "Pcmanfm",             NULL,     NULL,           1 << 3,    0,          0,           1,        -1 },           
+  { "discord",             NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
   { "obs",                 NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
   { NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */ 
 };

@@ -30,7 +30,7 @@ static const char *colors[][3]      = {
   /*            	 fg(font)  bg(behind test)  border   */    
   [SchemeNorm] = { col_gray3, col_dark_purple, col_gray2 },  
   [SchemeSel]  = { col_gray4, col_dracula, col_dracula },
-  // [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },     
+	[SchemeTitle]  = { col_light_blue, col_dark_purple, col_cyan },
 };
 
 /* tagging */
@@ -40,8 +40,8 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "Home", "Web", "Code", "Pcman", "Misc"};
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
+static const unsigned int ulinestroke	= 1;	/* thickness / height of the underline */
+static const unsigned int ulinevoffset	= 1;	/* how far above the bottom of the bar the line should appear */
 static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
@@ -188,6 +188,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = Kill9 } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
