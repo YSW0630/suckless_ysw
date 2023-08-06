@@ -97,6 +97,8 @@ static const char *emoji[] = {"bemoji", "-t", "-c", "-P",  NULL};
 static const char *Kill9[] = {"pkill", "-RTMIN+9", "dwmblocks", NULL};                                                                                                  
 static const char *Kill10[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = {"/home/justin/scs/Change_bg.sh", NULL};                                                                                               
+static const char *Fortune[] = {"/home/justin/scs/Fortune.sh", NULL};                                                                                               
+static const char *Yay[] = {"alacritty", "-e", "yay", NULL};                                                                                               
 
 #include "shiftview.c"     
 #include <X11/XF86keysym.h>
@@ -184,7 +186,9 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	{ ClkStatusText,        0,              Button1,        spawn,          {.v = Fortune } },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = Kill9 } },
+	{ ClkStatusText,        0,              Button3,        spawn,          {.v = Yay } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
