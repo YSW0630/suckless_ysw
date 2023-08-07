@@ -15,6 +15,8 @@ killall fcitx5
 fcitx5 &
 
 # start some tray
+killall nm-applet
+killall cbatticon
 nm-applet &
 cbatticon -n &
 # volumeicon &
@@ -29,6 +31,7 @@ unclutter &
 dunst &
 
 # start dwmblocks
+killall dwmblocks
 dwmblocks &
 
 # wallpaper

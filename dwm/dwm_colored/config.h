@@ -84,6 +84,8 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#define STATUSBAR "dwmblocks"
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "Run: ", NULL };                                                                                                  
@@ -99,11 +101,9 @@ static const char *lockcmd[] = { "slock", NULL};
 static const char *PrtSc[] = { "flameshot", "gui", NULL};                                                                                                               
 static const char *browser[] = {"google-chrome-stable", NULL};                                                                                                          
 static const char *emoji[] = {"bemoji", "-t", "-c", "-P",  NULL};                                                                                                                    
-static const char *Kill9[] = {"pkill", "-RTMIN+9", "dwmblocks", NULL};                                                                                                  
-static const char *Kill10[] = {"pkill", "-RTMIN+10", "dwmblocks", NULL};                                                                                                  
+static const char *Kill4[] = {"pkill", "-RTMIN+4", "dwmblocks", NULL};                                                                                                  
+static const char *Kill5[] = {"pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = {"/home/justin/scs/Change_bg.sh", NULL};                                                                                               
-static const char *Fortune[] = {"/home/justin/scs/Fortune.sh", NULL};                                                                                               
-static const char *Yay[] = {"alacritty", "-e", "yay", NULL};                                                                                               
 
 #include "shiftview.c"     
 #include <X11/XF86keysym.h>
@@ -113,11 +113,11 @@ static const Key keys[] = {
 	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = lightdown} },
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volup} },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldown} },
-  { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = Kill10} },
-	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill10} },
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill10} },
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill10} },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = Kill10} },
+  { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = Kill5} },
+	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = Kill5} },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = Kill4} },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = Kill4} },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = Kill4} },
   { 0,              XF86XK_AudioMute,        spawn,          {.v = mute_vol} },
   { 0,              XF86XK_AudioMicMute,     spawn,          {.v = mute_mic} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
@@ -191,9 +191,9 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        spawn,          {.v = Fortune } },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = Kill9 } },
-	{ ClkStatusText,        0,              Button3,        spawn,          {.v = Yay } },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
