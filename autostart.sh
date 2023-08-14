@@ -25,9 +25,11 @@ cbatticon -n &
 # blueman-applet &
 
 # start unclutter
+killall unclutter
 unclutter &
 
 # start dunst 
+killall dunst
 dunst &
 
 # start dwmblocks
@@ -40,6 +42,7 @@ feh --no-fehbg --bg-fill Pictures/dcpaper/wallhaven-ym7237_1920x1080.png
 # $HOME/scs/Random_wallpaper.sh &
 
 # start picom
+killall picom
 picom -b &
 
 # auto lock screen
