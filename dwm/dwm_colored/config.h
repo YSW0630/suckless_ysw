@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -52,6 +52,7 @@ static const Rule rules[] = {
   /* class                instance   title        tags mask  isfloating  isterminal  noswallow  monitor */         
   { "st-256color",         NULL,     NULL,           0,         0,          1,           0,        -1 },           
   { "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },           
+  { "xpad",                NULL,     NULL,           0,         1,          0,           1,        -1 },           
   { "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },           
   { "code-oss",            NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
   { "Pcmanfm",             NULL,     NULL,           1 << 3,    0,          0,           1,        -1 },           
@@ -99,11 +100,12 @@ static const char *lightup[] = { "light", "-A", "2", NULL };
 static const char *lightdown[] = { "light", "-U", "2", NULL };                                                                                                   
 static const char *lockcmd[] = { "slock", NULL};                                                                                                                        
 static const char *PrtSc[] = { "flameshot", "gui", NULL};                                                                                                               
-static const char *browser[] = {"google-chrome-stable", NULL};                                                                                                          
-static const char *emoji[] = {"bemoji", "-t", "-c", "-P",  NULL};                                                                                                                    
-static const char *Kill4[] = {"pkill", "-RTMIN+4", "dwmblocks", NULL};                                                                                                  
-static const char *Kill5[] = {"pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
-static const char *change_bg[] = {"/home/justin/scs/Change_bg.sh", NULL};                                                                                               
+static const char *browser[] = {  "google-chrome-stable", NULL};                                                                                                          
+static const char *emoji[] = {  "bemoji", "-t", "-c", "-P",  NULL};                                                                                                                    
+static const char *Kill4[] = {  "pkill", "-RTMIN+4", "dwmblocks", NULL};                                                                                                  
+static const char *Kill5[] = {  "pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
+static const char *change_bg[] = {  "/home/justin/scs/Change_bg.sh", NULL};                                                                                               
+static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
 
 #include "shiftview.c"     
 #include <X11/XF86keysym.h>
@@ -123,6 +125,7 @@ static const Key keys[] = {
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
   { MODKEY|ShiftMask,      	    	XK_w,      spawn,          {.v = change_bg } },
+  { MODKEY|ShiftMask,      	    	XK_p,      spawn,          {.v = Xpad } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
   { MODKEY|ShiftMask,             XK_o,      rotatestack,    {.i = -1 } },
   { MODKEY,                       XK_o,      rotatestack,    {.i = +1 } },

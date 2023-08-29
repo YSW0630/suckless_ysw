@@ -7,18 +7,19 @@ xrandr --auto
 # xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off
 # xrandr --output HDMI-1 --same-as eDP-1
 
-# Start fcitx5
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-killall fcitx5
-fcitx5 &
-
 # start some tray
+killall fcitx5
 killall nm-applet
 killall cbatticon
-nm-applet &
+killall xpad
+killall flameshot
+killall blueman-applet
+fcitx5 &
 cbatticon -n &
+flameshot &
+xpad -N &
+nm-applet &
+blueman-applet &
 # volumeicon &
 # my-weather-indicator &
 # flameshot &
@@ -37,9 +38,10 @@ killall dwmblocks
 dwmblocks &
 
 # wallpaper
-# feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
-feh --no-fehbg --bg-fill Pictures/dcpaper/wallhaven-ym7237_1920x1080.png
 # $HOME/scs/Random_wallpaper.sh &
+# feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
+# feh --no-fehbg --bg-fill Pictures/mywall/pxfuel6.jpg
+feh --no-fehbg --bg-fill Pictures/mywall/pxfuel5.jpg
 
 # start picom
 killall picom
@@ -47,6 +49,10 @@ picom -b &
 
 # auto lock screen
 xautolock -time 10 -locker slock &
+
+# run delay then update dbus
+sleep 1
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # Wifi(){
 #   Wifi="$(cat /sys/class/net/wlp9s0/operstate)"
