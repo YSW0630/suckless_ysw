@@ -2,9 +2,9 @@
 
 case $BUTTON in 
   1) alacritty --hold -e neofetch ;;
-  2) alacritty --hold -e curl wttr.in ;;
-  3) alacritty --hold -e neofetch ;;
+  2) surf term.ptt.cc ;;
+  3) kitty -e cmatrix -C blue;;
 esac
 
 kern="$(uname -r)"
-echo -e "$kern"
+echo "$kern"

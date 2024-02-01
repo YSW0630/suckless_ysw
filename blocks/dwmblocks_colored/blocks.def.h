@@ -10,7 +10,7 @@ static const Block blocks[] = {
     {"^c#F24F4F^   ", "$HOME/scs/Update.sh", 1800, 6},
     // {󰠠  ", "$HOME/scs/Battery.sh",    10,  	7},
     {"^c#DDADF6^ 󰍛  ", "$HOME/scs/Memory.sh", 5, 8},
-    {"^c#98c379^ 󰋊  ", "$HOME/scs/Disk.sh", 0, 9},
+    {"^c#98c379^ 󰋊  ", "$HOME/scs/Disk.sh", 1800, 9},
     {"^c#5A99F7^   ", "$HOME/scs/Clock.sh", 1, 10},
 };
 

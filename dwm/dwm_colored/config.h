@@ -89,7 +89,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "Run: ", NULL };                                                                                                  
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "Run 󱐋", NULL };                                                                                                  
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL }; 
 static const char *termcmd[]  = { "alacritty", NULL };                                                                                                                  
 static const char *volup[] = { "pamixer", "-ui", "2", "--allow-boost", NULL };                                                                                                
@@ -105,6 +105,7 @@ static const char *emoji[] = {  "bemoji", "-t", "-c", "-P",  NULL};
 static const char *Kill4[] = {  "pkill", "-RTMIN+4", "dwmblocks", NULL};                                                                                                  
 static const char *Kill5[] = {  "pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = {  "/home/justin/scs/Change_bg.sh", NULL};                                                                                               
+static const char *toggle_notification[] = {  "/home/justin/scs/Notify.sh", NULL};                                                                                               
 static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
 
 #include "shiftview.c"     
@@ -124,6 +125,7 @@ static const Key keys[] = {
   { 0,              XF86XK_AudioMicMute,     spawn,          {.v = mute_mic} },
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
+  { MODKEY|ShiftMask,      	    	XK_d,      spawn,          {.v = toggle_notification } },
   { MODKEY|ShiftMask,      	    	XK_w,      spawn,          {.v = change_bg } },
   { MODKEY|ShiftMask,      	    	XK_p,      spawn,          {.v = Xpad } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
