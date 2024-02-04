@@ -10,6 +10,6 @@ else # now: notify running, expect: close
   dunstify "Notification off" -i "/home/justin/Pictures/noDistrub.png"
   sleep 3s
   dunstctl set-paused toggle
+  dunstctl close-all
 fi
 
-dunstctl close-all
