@@ -37,7 +37,7 @@ static const char *colors[][3]      = {
 // static const char *tags[] = { "1", "2", "3", "4", "5"};
 // static const char *tags[] = { "", "", "", "", "󰇮", "", ""};
 // static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱"};
-static const char *tags[] = { "Home", "Web", "Code", "Pcman", "Misc"};
+static const char *tags[] = { "Home", "Web", "Code", "Pcman", "Vbox", "Misc"};
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 1;	/* thickness / height of the underline */
@@ -56,8 +56,9 @@ static const Rule rules[] = {
   { "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },           
   { "code-oss",            NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
   { "Pcmanfm",             NULL,     NULL,           1 << 3,    0,          0,           1,        -1 },           
-  { "discord",             NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
-  { "obs",                 NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
+  { "VirtualBox",          NULL,     NULL,           1 << 4,    0,          0,           1,        -1 },           
+  { "discord",             NULL,     NULL,           1 << 5,    0,          0,           1,        -1 },           
+  { "obs",                 NULL,     NULL,           1 << 5,    0,          0,           1,        -1 },           
   { NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */ 
 };
 
