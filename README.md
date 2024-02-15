@@ -18,7 +18,7 @@ some cute programs 👇
 ```ranger```  
 ```nitch```  
 ```picom```  
-```pmixer```  
+```pamixer```  
 ```noto-fonts```  
 ```pulsemixer```  
 ```xautolock```  
