@@ -90,7 +90,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "Run 󱐋", NULL };                                                                                                  
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "Launch 󱓞 ", NULL };                                                                                                  
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_light_blue, "-sf", col_gray4, NULL }; 
 static const char *termcmd[]  = { "alacritty", NULL };                                                                                                                  
 static const char *volup[] = { "pamixer", "-ui", "2", "--allow-boost", NULL };                                                                                                
@@ -107,6 +107,7 @@ static const char *Kill4[] = { "pkill", "-RTMIN+4", "dwmblocks", NULL};
 static const char *Kill5[] = { "pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = { "/home/justin/scs/Change_bg.sh", NULL};                                                                                               
 static const char *toggle_notification[] = { "/home/justin/scs/Notify.sh", NULL};                                                                                               
+static const char *AppLaunch[] = { "/home/justin/scs/AppLaunch.sh", NULL};
 static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
 
 #include "shiftview.c"     
@@ -136,6 +137,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_w,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                	    	XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                	    	XK_a,		 	 spawn,          {.v = AppLaunch } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
