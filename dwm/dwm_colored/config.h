@@ -109,6 +109,8 @@ static const char *change_bg[] = { "/home/justin/scs/Change_bg.sh", NULL};
 static const char *toggle_notification[] = { "/home/justin/scs/Notify.sh", NULL};                                                                                               
 static const char *AppLaunch[] = { "/home/justin/scs/AppLaunch.sh", NULL};
 static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 #include "shiftview.c"     
 #include <X11/XF86keysym.h>
@@ -137,6 +139,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_w,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                	    	XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                	    	XK_a,		 	 spawn,          {.v = AppLaunch } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
