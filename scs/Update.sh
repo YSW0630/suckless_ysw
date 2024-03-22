@@ -1,8 +1,8 @@
 #!/bin/bash
 
 case $BUTTON in 
-  1) alacritty -e yay ;;
-  2) alacritty --hold -e sh -c 'colorscript --exec pacman | pv -qL 2500 && yay' ;;
+  1) alacritty -e sh -c 'colorscript --exec pacman && yay' ;;
+  2) alacritty -e asciiquarium ;;
   3) pkill --RTMIN+6 dwmblocks ;;
 esac
 

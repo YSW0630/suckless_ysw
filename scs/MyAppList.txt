@@ -8,11 +8,15 @@ cool-retro-term
 discord
 ghostwriter
 gimp
-google-chrome
+google-chrome-stable
+gvim
 kitty
+libreoffice
 nitrogen
 obs
 pavucontrol
 pcmanfm
+st
 supertux
+virtualbox
 vlc
