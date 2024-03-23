@@ -14,7 +14,7 @@ static const Block blocks[] = {
     {"^c#5A99F7^   ", "$HOME/scs/Clock.sh", 1, 10},
 };
 
-// sets delimeter between status commands. NULL character ('\0') means no
-// delimeter.
+// sets delimiter between status commands. NULL character ('\0') means no
+// delimiter.
 static char delim[] = " ";
 static unsigned int delimLen = 5;
