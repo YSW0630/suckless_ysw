@@ -21,16 +21,17 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 
 /* My Color Scheme */                           
-static const char col_dark_purple[]	= "#282a36";
-static const char col_light_purple[]= "#7E00D5";
-static const char col_dracula[]     = "#6272a4";
-static const char col_light_blue[]= "#5A6EFF";  
+static const char col_dark_purple[] 	= "#282a36";
+static const char col_dark_purple2[]  = "#50535c";
+static const char col_light_purple[]  = "#7E00D5";
+static const char col_dracula[]       = "#6272a4";
+static const char col_light_blue[]    = "#5A6EFF";  
 
 static const char *colors[][3]      = {
   /*            	 fg(font)  bg(behind test)  border   */    
-  [SchemeNorm] = { col_gray3, col_dark_purple, col_gray2 },  
-  [SchemeSel]  = { col_gray4, col_dracula, col_dracula },
-	[SchemeTitle]  = { col_light_blue, col_dark_purple, col_cyan },
+  [SchemeNorm]  = { col_gray3, col_dark_purple, col_gray2 },  
+  [SchemeSel]   = { col_gray4, col_dark_purple2, col_dracula },
+	[SchemeTitle] = { col_light_blue, col_dark_purple, col_cyan },
 };
 
 /* tagging */
