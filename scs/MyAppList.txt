@@ -9,6 +9,7 @@ discord
 ghostwriter
 gimp
 google-chrome-stable
+gpick
 gvim
 kitty
 libreoffice
@@ -17,6 +18,6 @@ obs
 pavucontrol
 pcmanfm
 st
-supertux
+supertux2
 virtualbox
 vlc

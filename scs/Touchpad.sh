@@ -1,11 +1,11 @@
 #!/bin/bash
 
-Status="$(xinput list-props 10 | awk '/Device Enabled/{print $NF}')"
+Status=$(xinput list-props "SynPS/2 Synaptics TouchPad" | awk '/Device Enabled/{print $NF}')
 
-if [ "$Status" == "1" ]; then
-  dunstify "Touchpad off" -i "/home/justin/Pictures/touchpad_off.jpeg"
-  xinput disable 10
+if [ "$Status" == 1 ]; then
+  dunstify "Touchpad off" -t 3000 -i "/home/justin/Pictures/sys/touchpad_off.jpeg"
+  xinput disable "SynPS/2 Synaptics TouchPad"
 else
-  dunstify "Touchpad on" -i "/home/justin/Pictures/touchpad_on.png"
-  xinput enable 10
+  dunstify "Touchpad on" -t 3000 -i "/home/justin/Pictures/sys/touchpad_on.png"
+  xinput enable "SynPS/2 Synaptics TouchPad"
 fi
