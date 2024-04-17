@@ -21,17 +21,17 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 
 /* My Color Scheme */                           
-static const char col_dark_purple[] 	= "#282a36";
+static const char col_dark_purple[]	  = "#282a36";
 static const char col_dark_purple2[]  = "#50535c";
 static const char col_light_purple[]  = "#7E00D5";
 static const char col_dracula[]       = "#6272a4";
 static const char col_light_blue[]    = "#5A6EFF";  
 
-static const char *colors[][3]      = {
+static const char *colors[][3] = {
   /*            	 fg(font)  bg(behind test)  border   */    
   [SchemeNorm]  = { col_gray3, col_dark_purple, col_gray2 },  
-  [SchemeSel]   = { col_gray4, col_dark_purple2, col_dracula },
-	[SchemeTitle] = { col_light_blue, col_dark_purple, col_cyan },
+  [SchemeSel]   = { col_gray4, col_dracula, col_dracula },
+  [SchemeTitle] = { col_light_blue, col_dark_purple, col_cyan },
 };
 
 /* tagging */
@@ -53,6 +53,7 @@ static const Rule rules[] = {
   /* class                instance   title        tags mask  isfloating  isterminal  noswallow  monitor */         
   { "st-256color",         NULL,     NULL,           0,         0,          1,           0,        -1 },           
   { "Alacritty",           NULL,     NULL,           0,         0,          1,           0,        -1 },           
+  { "kitty",               NULL,     NULL,           0,         0,          1,           0,        -1 },           
   { "xpad",                NULL,     NULL,           0,         1,          0,           1,        -1 },           
   { "Google-chrome",       NULL,     NULL,           1 << 1,    0,          0,           1,        -1 },           
   { "code-oss",            NULL,     NULL,           1 << 2,    0,          0,           1,        -1 },           
@@ -108,6 +109,7 @@ static const char *Kill4[] = { "pkill", "-RTMIN+4", "dwmblocks", NULL};
 static const char *Kill5[] = { "pkill", "-RTMIN+5", "dwmblocks", NULL};                                                                                                  
 static const char *change_bg[] = { "/home/justin/scs/Change_bg.sh", NULL};                                                                                               
 static const char *toggle_notification[] = { "/home/justin/scs/Notify.sh", NULL};                                                                                               
+static const char *toggle_touchpad[] = { "/home/justin/scs/Touchpad.sh", NULL};                                                                                               
 static const char *AppLaunch[] = { "/home/justin/scs/AppLauncher.sh", NULL};
 static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
 static const char scratchpadname[] = "scratchpad";
@@ -131,6 +133,7 @@ static const Key keys[] = {
   { 0,                            XK_Print,  spawn,          {.v = PrtSc} },
 	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
   { MODKEY|ShiftMask,      	    	XK_d,      spawn,          {.v = toggle_notification } },
+  { MODKEY|ShiftMask,      	    	XK_t,      spawn,          {.v = toggle_touchpad } },
   { MODKEY|ShiftMask,      	    	XK_w,      spawn,          {.v = change_bg } },
   { MODKEY|ShiftMask,      	    	XK_p,      spawn,          {.v = Xpad } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 

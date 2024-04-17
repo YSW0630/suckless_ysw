@@ -269,9 +269,6 @@ static void togglefloating(const Arg *arg);
 static void togglescratch(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
-static void window_set_state(Display *dpy, Window win, long state);
-static void window_map(Display *dpy, Client *c, int deiconify);
-static void window_unmap(Display *dpy, Window win, Window root, int iconify);
 static void unfocus(Client *c, int setfocus);
 static void unmanage(Client *c, int destroyed);
 static void unmapnotify(XEvent *e);
@@ -289,6 +286,9 @@ static void updatetitle(Client *c);
 static void updatewindowtype(Client *c);
 static void updatewmhints(Client *c);
 static void view(const Arg *arg);
+static void window_set_state(Display *dpy, Window win, long state);
+static void window_map(Display *dpy, Client *c, int deiconify);
+static void window_unmap(Display *dpy, Window win, Window root, int iconify);
 static void warp(const Client *c);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
@@ -3183,8 +3183,8 @@ view(const Arg *arg)
 	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
 		togglebar(NULL);
 
-	focus(NULL);
 	arrange(selmon);
+	focus(NULL);
 }
 
 pid_t
