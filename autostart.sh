@@ -8,22 +8,17 @@ xrandr --auto
 # xrandr --output HDMI-1 --same-as eDP-1
 
 # start some tray
-killall fcitx5
-killall nm-applet
+# killall lxsession 
 killall cbatticon
 killall xpad
 killall flameshot
-killall blueman-applet
-fcitx5 &
+# lxsession & # nm-applet, blueman-applet, picom, fcitx5
 cbatticon -n &
-flameshot &
 xpad -N &
-nm-applet &
-blueman-applet &
+flameshot &
+# udiskie &
 # volumeicon &
 # my-weather-indicator &
-# flameshot &
-# blueman-applet &
 
 # start unclutter
 killall unclutter
@@ -37,15 +32,15 @@ dunst &
 killall dwmblocks
 dwmblocks &
 
+# start pcmanfm daemon
+killall pcmanfm
+pcmanfm -d &
+
 # wallpaper
-# $HOME/scs/Random_wallpaper.sh &
 feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
+# $HOME/scs/Random_wallpaper.sh &
 # feh --no-fehbg --bg-fill Pictures/mywall/pxfuel6.jpg
 # feh --no-fehbg --bg-fill Pictures/mywall/pxfuel5.jpg
-
-# start picom
-killall picom
-picom -b &
 
 # auto lock screen
 xautolock -time 10 -locker slock &
