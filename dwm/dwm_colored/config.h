@@ -114,6 +114,7 @@ static const char *AppLaunch[] = { "/home/justin/scs/AppLauncher.sh", NULL};
 static const char *Xpad[] = { "xpad", "-n", NULL};                                                                                               
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *ytfzfcmd[] = {"ytfzf", "-D", NULL};
 
 #include "shiftview.c"     
 #include <X11/XF86keysym.h>
@@ -134,6 +135,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,      	    	XK_e,      spawn,          {.v = emoji } },
   { MODKEY|ShiftMask,      	    	XK_d,      spawn,          {.v = toggle_notification } },
   { MODKEY|ShiftMask,      	    	XK_t,      spawn,          {.v = toggle_touchpad } },
+	{ MODKEY|ShiftMask,			   			XK_y,	     spawn,          {.v = ytfzfcmd} },
   { MODKEY|ShiftMask,      	    	XK_w,      spawn,          {.v = change_bg } },
   { MODKEY|ShiftMask,      	    	XK_p,      spawn,          {.v = Xpad } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {1} }, 
