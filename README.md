@@ -20,6 +20,7 @@ some cute programs 👇
 ```pulsemixer```  
 ```xautolock```  
 
+general installation guide 👇
 ``` bash
 # command:
 git clone https://github.com/YSW0630/suckless_backup
