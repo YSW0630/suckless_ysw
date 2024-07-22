@@ -1,8 +1,8 @@
 # **🚀 My suckless programs configs**
 
 ## **Why I choose suckless**
-+ minimalist design（with code not exceeding 2000 lines without patches）
-+ When I chose ArchLinux, I wanted to minimize the space usage on my computer, and suckless also meets this requirement.
+1. Minimalist design（with code not exceeding 2000 lines without patches）
+2. Minimize the space usage on my computer, and suckless meets this requirement.
 
 ## **Some dependencies (for archlinux)**
 
