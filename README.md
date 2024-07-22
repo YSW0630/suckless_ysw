@@ -40,7 +40,7 @@ make && sudo make clean install
 ![dmenu_looks](https://github.com/YSW0630/suckless_backup/assets/95664509/6789c1c0-e8a6-4619-be25-21fd98e248ec)
 
 ## **🐬 dwmblocks demo**
-![dwmblocks_looks](https://github.com/YSW0630/suckless_backup/assets/95664509/1c4f934d-6714-44dc-b814-0db293df54cc)
+![dwmblocks_colored_demo](https://github.com/user-attachments/assets/f4af7d1f-3840-457d-8c8e-ec21ea4c735c)
 
 ## **🤟 some of my keybinds in dwm**
 > super + q : exit window
