@@ -35,12 +35,15 @@ killall pcmanfm
 pcmanfm -d &
 
 # wallpaper
-feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
+feh --no-fehbg --bg-fill Pictures/mywall/pxfuel5.jpg
 # $HOME/scs/Random_wallpaper.sh &
 # feh --no-fehbg --bg-fill Pictures/mywall/pxfuel6.jpg
-# feh --no-fehbg --bg-fill Pictures/mywall/pxfuel5.jpg
+# feh --no-fehbg --bg-fill ~/Pictures/wallpapers/0213.jpg
 
 # auto lock screen
 xautolock -time 10 -locker slock &
+
+# refresh volume
+sleep 1 && pkill -RTMIN+4 dwmblocks &
 
 ####################################     END CONFIG     ########################################
