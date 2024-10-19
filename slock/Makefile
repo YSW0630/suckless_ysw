@@ -18,6 +18,7 @@ config.h:
 
 slock: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
+
 clean:
 	rm -f slock ${OBJ} slock-${VERSION}.tar.gz
 
