@@ -1,5 +1,7 @@
 # **🚀 My suckless programs configs**
 
+**Suckless Website:** <https://suckless.org>
+
 ## **Why I choose suckless**
 1. Minimalist design（with code not exceeding 2000 lines without patches）
 2. Minimize the space usage on my computer, and suckless meets this requirement.
